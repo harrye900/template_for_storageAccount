@@ -16,6 +16,14 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
+    - name: List Storage Accounts
+      run: |
+        az storage account list --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --output table
+    
     - name: Delete Storage Account
       run: |
         az storage account delete --name harrystore20241220 --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --yes
+    
+    - name: Verify Deletion
+      run: |
+        az storage account list --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --output table
