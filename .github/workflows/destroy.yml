@@ -22,7 +22,7 @@ jobs:
     
     - name: Delete Storage Account
       run: |
-        az storage account delete --name harrystore20241220 --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --yes
+        az storage account delete --name mystgaccount000 --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --yes
     
     - name: Verify Deletion
       run: |
